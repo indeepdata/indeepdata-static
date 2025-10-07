@@ -142,6 +142,153 @@ function toggleTOC() {
   }
 }
 
+// Search functionality
+function searchArticles(query) {
+  if (!window.searchIndex) return [];
+
+  const searchTerm = query.toLowerCase().trim();
+
+  if (!searchTerm) return [];
+
+  return window.searchIndex.filter((post) => {
+    const titleMatch = post.title.toLowerCase().includes(searchTerm);
+    const excerptMatch = post.excerpt.toLowerCase().includes(searchTerm);
+    const categoryMatch = post.category.toLowerCase().includes(searchTerm);
+    const contentMatch = post.content.toLowerCase().includes(searchTerm);
+    const keywordsMatch =
+      post.keywords && post.keywords.toLowerCase().includes(searchTerm);
+
+    return (
+      titleMatch ||
+      excerptMatch ||
+      categoryMatch ||
+      contentMatch ||
+      keywordsMatch
+    );
+  });
+}
+
+async function loadSearchIndex() {
+  if (window.searchIndex) {
+    return window.searchIndex;
+  }
+
+  try {
+    const response = await fetch("/search.json");
+    if (!response.ok) {
+      throw new Error("Failed to load search index");
+    }
+    window.searchIndex = await response.json();
+    return window.searchIndex;
+  } catch (error) {
+    console.error("Error loading search index:", error);
+    return [];
+  }
+}
+
+function initializeSearch() {
+  const searchInput = document.getElementById("search-input");
+  const searchCount = document.getElementById("search-count");
+  const allArticles = document.getElementById("all-articles");
+  const resultsContainer = document.getElementById("results-container");
+  const resultsList = document.getElementById("results-list");
+  const resultsCount = document.getElementById("results-count");
+  const noResults = document.getElementById("no-results");
+
+  if (!searchInput) return;
+
+  // Load search index
+  loadSearchIndex().then((index) => {
+    // Update article count
+    if (searchCount && index) {
+      searchCount.textContent = index.length;
+    }
+  });
+
+  // Handle search input
+  let searchTimeout;
+  searchInput.addEventListener("input", function (e) {
+    const query = e.target.value;
+
+    clearTimeout(searchTimeout);
+    searchTimeout = setTimeout(async () => {
+      if (!query.trim()) {
+        // Show all articles
+        allArticles.classList.remove("hidden");
+        resultsContainer.classList.add("hidden");
+        noResults.classList.add("hidden");
+        return;
+      }
+
+      // Ensure search index is loaded
+      await loadSearchIndex();
+
+      // Perform search
+      const results = searchArticles(query);
+
+      // Hide all articles section
+      allArticles.classList.add("hidden");
+
+      if (results.length === 0) {
+        resultsContainer.classList.add("hidden");
+        noResults.classList.remove("hidden");
+      } else {
+        noResults.classList.add("hidden");
+        resultsContainer.classList.remove("hidden");
+        resultsCount.textContent = results.length;
+
+        // Display results
+        resultsList.innerHTML = results
+          .map(
+            (post) => `
+                    <article class="bg-white dark:bg-dark-800 border border-gray-200 dark:border-dark-700 rounded-lg p-6 hover:shadow-lg transition-shadow">
+                        <a href="${post.url}" class="block">
+                            <div class="flex items-start justify-between mb-2">
+                                <h3 class="text-lg font-semibold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                                    ${highlightText(post.title, query)}
+                                </h3>
+                                <span class="ml-4 text-xs px-2 py-1 rounded-full bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-300 whitespace-nowrap">
+                                    ${post.category}
+                                </span>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-400 mb-3">
+                                ${highlightText(post.excerpt, query)}
+                            </p>
+                            <div class="flex items-center text-sm text-gray-500 dark:text-gray-500">
+                                <time>${formatDate(post.date)}</time>
+                            </div>
+                        </a>
+                    </article>
+                `
+          )
+          .join("");
+      }
+
+      trackEvent("search", { query: query, results: results.length });
+    }, 300);
+  });
+}
+
+function highlightText(text, query) {
+  if (!query) return text;
+
+  const regex = new RegExp(`(${escapeRegex(query)})`, "gi");
+  return text.replace(
+    regex,
+    '<mark class="bg-yellow-200 dark:bg-yellow-800">$1</mark>'
+  );
+}
+
+function escapeRegex(string) {
+  return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function formatDate(dateString) {
+  const date = new Date(dateString);
+  const options = { year: "numeric", month: "long", day: "numeric" };
+  return date.toLocaleDateString("en-US", options);
+}
+
 // Share functionality
 function shareArticle(platform) {
   const url = window.location.href;
@@ -249,12 +396,6 @@ function lazyLoadImages() {
   images.forEach((img) => imageObserver.observe(img));
 }
 
-// Search functionality (if needed)
-function searchArticles(query) {
-  // Implement search functionality here
-  console.log("Searching for:", query);
-}
-
 // Analytics tracking (replace with actual analytics code)
 function trackEvent(eventName, properties = {}) {
   console.log("Tracking event:", eventName, properties);
@@ -308,6 +449,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Track page view
   trackPageView();
+
+  initializeSearch();
 
   // Close mobile menu when clicking outside
   document.addEventListener("click", function (event) {
