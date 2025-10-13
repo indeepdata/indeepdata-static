@@ -27,23 +27,23 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How to create an Excel file with Python using xlwt - InDeepData
+    <title>Quick Guide: Configuring Git on Your Local System - InDeepData
       
         - IndeepData
     </title>
-    <meta name="description" content="Python&#39;s XLWT library allows you to write Excel files. In addition to text and numbers, formulas can also be entered into multiple worksheets. Other features include styling text, managing column size, and more.">
-    <meta name="keywords" content="Python, CSV, Pandas, reader">
+    <meta name="description" content="Learn about how to install &amp; configure git on your operating system with easy to follow step by step guide.">
+    <meta name="keywords" content="Python, CSV, Pandas, git, version control">
     <meta name="author" content="IndeepData">
-    <meta property="og:title" content="How to create an Excel file with Python using xlwt - InDeepData">
-    <meta property="og:description" content="Python&#39;s XLWT library allows you to write Excel files. In addition to text and numbers, formulas can also be entered into multiple worksheets. Other features include styling text, managing column size, and more.">
+    <meta property="og:title" content="Quick Guide: Configuring Git on Your Local System - InDeepData">
+    <meta property="og:description" content="Learn about how to install &amp; configure git on your operating system with easy to follow step by step guide.">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://indeepdata.com/blog/create-excel-with-python/">
+    <meta property="og:url" content="https://indeepdata.com/blog/configure-git-on-local-system/">
     
       <meta name="twitter:card" content="summary">
-      <meta name="twitter:title" content="How to create an Excel file with Python using xlwt - InDeepData">
-      <meta name="twitter:description" content="Python&#39;s XLWT library allows you to write Excel files. In addition to text and numbers, formulas can also be entered into multiple worksheets. Other features include styling text, managing column size, and more.">
+      <meta name="twitter:title" content="Quick Guide: Configuring Git on Your Local System - InDeepData">
+      <meta name="twitter:description" content="Learn about how to install &amp; configure git on your operating system with easy to follow step by step guide.">
     
-    <link rel="canonical" href="https://indeepdata.com/blog/create-excel-with-python/">
+    <link rel="canonical" href="https://indeepdata.com/blog/configure-git-on-local-system/">
     <link rel="stylesheet" href="/assets/css/output.css">
     <link rel="stylesheet" href="/assets/css/styles.css">
     <link rel="icon" type="image/png" href="/assets/images/favlogo.png"/>
@@ -150,13 +150,13 @@
                 <time datetime="2025-10-13T00:00:00.000Z">October 13, 2025</time>
                 <span class="mx-2">•</span>
                 <a
-                    href="/category/python/"
-                    class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Python</a>
+                    href="/category/version-control/"
+                    class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Version Control</a>
                 <span class="mx-2">•</span>
-                <span>2 min read</span>
+                <span>1 min read</span>
             </div>
             <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-                How to create an Excel file with Python using xlwt
+                Quick Guide: Configuring Git on Your Local System
             </h1>
         </header>
         <!-- Table of Contents (only show if TOC exists) -->
@@ -188,54 +188,38 @@
         
         <!-- Article Content -->
         <div class="space-y-6" id="article-content">
-            <p><img src="/assets/images/createxcelpython.jpg" alt="Read CSV without Pandas"></p>
-<p>Python's <span class="inline-code">XLWT</span> library allows you to write Excel files. In addition to text and numbers, formulas can also be entered into multiple worksheets. Other features include styling text, managing column size, and more.</p>
-<h2>How to install xlwt librabry</h2>
-<p>Install xlwt with the below command.</p>
-<p><span class="inline-code">pip install xlwt</span></p>
-<p>In order to test our code after installation, we need to create a dummy data set.</p>
+            <p>Before going to run any git operations we have to do some configurations on your local system.</p>
+<p>It is used to set configuration values on global or local project levels.</p>
+<p>👉 <strong>Global</strong>: For all projects on your local system.</p>
+<p>👉 <strong>Local</strong>: For all projects on a directory</p>
+<p>So let’s do it.</p>
+<p>Open the terminal and run the following commands.</p>
+<p>If you want to configure git <strong>globally</strong> follow below instuction:</p>
 <div class="relative bg-gray-50 dark:bg-dark-800 rounded-2xl p-8 my-8 border border-gray-200 dark:border-gray-700">
-<pre class="text-sm"><code class="language-javascript">data = [
-    {
-        "name":"Testuser1",
-        "age":20,
-        "country":"India"
-    },
-    {
-        "name":"Testuser2",
-        "age":20,
-        "country":"Canada"
-    },
-    {
-        "name":"Testuser2",
-        "age":29,
-        "country":"USA"
-    },
-]
-</code></pre>
-<button class="copy-btn" onclick="copyToClipboard(this)">Copy Code</button>
-</div>
-<p>Now we have the data to create excel file.</p>
-<h2>How to create Excel with Python using xlwt</h2>
-<p>Please follow the below given code</p>
-<div class="relative bg-gray-50 dark:bg-dark-800 rounded-2xl p-8 my-8 border border-gray-200 dark:border-gray-700">
-<pre class="text-sm"><code class="language-javascript"># Import workbook to write data from xlwt
-from xlwt import Workbook
-<p>#Create an object of the workbook</p>
-<p>excel = Workbook()</p>
-<p>#Add sheet in workbook</p>
-<p>sheet = excel.add_sheet(&quot;Test Data&quot;)</p>
-<p>for index, value in enumerate(data):
-sheet.write(index, 0, value[&quot;name&quot;])
-sheet.write(index, 1, value[&quot;age&quot;])
-sheet.write(index, 2, value[&quot;country&quot;])</p>
-<p>#Now save the excel</p>
-<p>save_location = &quot;path/to/your/working/directory/result.xls&quot;
-excel.save(save_location)
+<pre class="text-sm"><code class="language-javascript">#Set the User name
+git config --global user.name "name"
+<p>#Set the email-ID
+git config --global user.email &quot;Git-Hub email-Id&quot;</p>
+<p>#To list all the configurations
+git config --list
 </code></pre>
 <button class="copy-btn" onclick="copyToClipboard(this)">Copy Code</button></p>
 </div>
-<p>Thanks for visiting InDeepData</p>
+<p>If you want to configure git <strong>locally</strong> follow below instuction:</p>
+<div class="relative bg-gray-50 dark:bg-dark-800 rounded-2xl p-8 my-8 border border-gray-200 dark:border-gray-700">
+<pre class="text-sm"><code class="language-javascript"># Set the User name
+git config --local user.name "<name>"
+<p>#Set the email-ID
+git config --local user.email &quot;<Git-Hub email-Id>&quot;</p>
+<p>#To list all the configurations
+git config --list
+</code></pre>
+<button class="copy-btn" onclick="copyToClipboard(this)">Copy Code</button></p>
+</div>
+<p>We are now ready to use Git.</p>
+<p>Hope this was helpful ✌️</p>
+<h2>Recommended for you</h2>
+<p><a href="https://indeepdata.com/answer/install-git-on-local-system/" style="color:#2563eb;font-weight:700">👉 How to Install Git on Your Local System Step-by-Step Guide for Beginners</a></p>
 
         </div>
         <!-- Share buttons -->

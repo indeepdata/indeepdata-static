@@ -397,6 +397,33 @@ a:focus-visible {
   color: #fcd34d;
 }
 
+.prices-li:before {
+  content:url('/assets/images/up.svg');
+  padding-top: 6px;
+  transform: scale(0.5);
+}
+
+
+.title::before {
+  content:url('/assets/images/down.svg');
+  position: absolute;
+  right: 20px;
+  transition: all 0.2s;
+}
+
+.content {
+  max-height: 0;
+  transition: max-height 0.2s;
+}
+
+.toggle:checked + .title + .content {
+  max-height: 500px;
+}
+.toggle:checked + .title::before {
+  transform: rotate(180deg) !important;
+}
+
+
 /* Enhanced mobile responsiveness */
 @media (max-width: 640px) {
   .modern-card {

@@ -1,6 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-E48Y2NPB96"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'G-E48Y2NPB96');
+    </script>
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer'
+            ? '&l=' + l
+            : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-P3SH7HN');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>How to read CSV files with or without Pandas - InDeepData
@@ -22,6 +46,7 @@
     <link rel="canonical" href="https://indeepdata.com/blog/how-to-read-csv/">
     <link rel="stylesheet" href="/assets/css/output.css">
     <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="icon" type="image/png" href="/assets/images/favlogo.png"/>
   </head>
   <body class="bg-white text-gray-900 transition-colors duration-300 dark:bg-dark-900 dark:text-gray-100">
     <div class="min-h-screen">
@@ -115,14 +140,14 @@
       <main>
         
 <div
-    class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
     <!-- Article -->
     <article
         class="prose prose-lg dark:prose-invert max-w-none">
         <!-- Article Header -->
         <header class="mb-8">
             <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-4">
-                <time datetime="2022-11-27T00:00:00.000Z">November 27, 2022</time>
+                <time datetime="2025-10-13T00:00:00.000Z">October 13, 2025</time>
                 <span class="mx-2">•</span>
                 <a
                     href="/category/python/"
@@ -256,15 +281,15 @@ print(row, end = &quot;\n&quot;)</p>
         </div>
         <!-- Share buttons -->
         <div class="border-t border-gray-200 dark:border-dark-700 pt-8 mt-12">
-            <div class="flex items-center justify-between">
-                <div class="flex items-center space-x-4">
-                    <span class="text-sm text-gray-500 dark:text-gray-400">Share this article:</span>
-                    <button onclick="shareArticle('twitter')" class="text-blue-500 hover:text-blue-600">Twitter</button>
-                    <button onclick="shareArticle('linkedin')" class="text-blue-500 hover:text-blue-600">LinkedIn</button>
-                </div>
+            <div class="flex items-center justify-end">
                 <a href="/" class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium">
                     ← Back to all articles
                 </a>
+            </div>
+            <div class="flex items-center space-x-4 mt-5">
+                <span class="text-sm text-gray-500 dark:text-gray-400">Share this article:</span>
+                <button onclick="shareArticle('twitter')" class="text-blue-500 hover:text-blue-600">Twitter</button>
+                <button onclick="shareArticle('linkedin')" class="text-blue-500 hover:text-blue-600">LinkedIn</button>
             </div>
         </div>
     </article>

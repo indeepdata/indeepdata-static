@@ -27,23 +27,19 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How to create an Excel file with Python using xlwt - InDeepData
+    <title>Version Control
       
         - IndeepData
     </title>
-    <meta name="description" content="Python&#39;s XLWT library allows you to write Excel files. In addition to text and numbers, formulas can also be entered into multiple worksheets. Other features include styling text, managing column size, and more.">
-    <meta name="keywords" content="Python, CSV, Pandas, reader">
+    <meta name="description" content="InDeepData is a Data Science portal. Can read and learn blogs and tutorials for Python programming, Version Control, SQL, Data Analysis, data science, and Machine Learning.">
+    <meta name="keywords" content="version control, Python, programming, Machine Learning, data science, SQL, data analysis, cloud, cloud computing, development, DevOps, pandas, numpy, docker">
     <meta name="author" content="IndeepData">
-    <meta property="og:title" content="How to create an Excel file with Python using xlwt - InDeepData">
-    <meta property="og:description" content="Python&#39;s XLWT library allows you to write Excel files. In addition to text and numbers, formulas can also be entered into multiple worksheets. Other features include styling text, managing column size, and more.">
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="https://indeepdata.com/blog/create-excel-with-python/">
+    <meta property="og:title" content="Version Control">
+    <meta property="og:description" content="InDeepData is a Data Science portal. Can read and learn blogs and tutorials for Python programming, Version Control, SQL, Data Analysis, data science, and Machine Learning.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://indeepdata.com/category/version-control/">
     
-      <meta name="twitter:card" content="summary">
-      <meta name="twitter:title" content="How to create an Excel file with Python using xlwt - InDeepData">
-      <meta name="twitter:description" content="Python&#39;s XLWT library allows you to write Excel files. In addition to text and numbers, formulas can also be entered into multiple worksheets. Other features include styling text, managing column size, and more.">
-    
-    <link rel="canonical" href="https://indeepdata.com/blog/create-excel-with-python/">
+    <link rel="canonical" href="https://indeepdata.com/category/version-control/">
     <link rel="stylesheet" href="/assets/css/output.css">
     <link rel="stylesheet" href="/assets/css/styles.css">
     <link rel="icon" type="image/png" href="/assets/images/favlogo.png"/>
@@ -140,118 +136,182 @@
       <main>
         
 <div
-    class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-    <!-- Article -->
-    <article
-        class="prose prose-lg dark:prose-invert max-w-none">
-        <!-- Article Header -->
-        <header class="mb-8">
-            <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-4">
-                <time datetime="2025-10-13T00:00:00.000Z">October 13, 2025</time>
-                <span class="mx-2">•</span>
-                <a
-                    href="/category/python/"
-                    class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Python</a>
-                <span class="mx-2">•</span>
-                <span>2 min read</span>
-            </div>
-            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-                How to create an Excel file with Python using xlwt
-            </h1>
-        </header>
-        <!-- Table of Contents (only show if TOC exists) -->
-        
-            <div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4 mb-8">
-                <button
-                    onclick="toggleTOC()"
-                    class="flex items-center justify-between w-full text-left font-semibold text-gray-900 dark:text-white hover:text-blue-600
-                        dark:hover:text-blue-400 transition-colors">
-                    <span class="text-lg flex items-center justify-center">
-                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M6 2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm0 2v16h12V4H6zm2 2h8v2H8V6zm0 4h8v2H8v-2zm0
-                                4h5v2H8v-2z"></path>
-                        </svg>
-                        Table of Contents</span>
-                    <svg
-                        id="toc-chevron"
-                        class="w-5 h-5 transform transition-transform duration-200"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
-                </button>
-                <nav
-                    id="toc-content" class="mt-4 space-y-2"><!-- TOC will be populated by JavaScript -->
-                </nav>
-            </div>
-        
-        <!-- Article Content -->
-        <div class="space-y-6" id="article-content">
-            <p><img src="/assets/images/createxcelpython.jpg" alt="Read CSV without Pandas"></p>
-<p>Python's <span class="inline-code">XLWT</span> library allows you to write Excel files. In addition to text and numbers, formulas can also be entered into multiple worksheets. Other features include styling text, managing column size, and more.</p>
-<h2>How to install xlwt librabry</h2>
-<p>Install xlwt with the below command.</p>
-<p><span class="inline-code">pip install xlwt</span></p>
-<p>In order to test our code after installation, we need to create a dummy data set.</p>
-<div class="relative bg-gray-50 dark:bg-dark-800 rounded-2xl p-8 my-8 border border-gray-200 dark:border-gray-700">
-<pre class="text-sm"><code class="language-javascript">data = [
-    {
-        "name":"Testuser1",
-        "age":20,
-        "country":"India"
-    },
-    {
-        "name":"Testuser2",
-        "age":20,
-        "country":"Canada"
-    },
-    {
-        "name":"Testuser2",
-        "age":29,
-        "country":"USA"
-    },
-]
-</code></pre>
-<button class="copy-btn" onclick="copyToClipboard(this)">Copy Code</button>
-</div>
-<p>Now we have the data to create excel file.</p>
-<h2>How to create Excel with Python using xlwt</h2>
-<p>Please follow the below given code</p>
-<div class="relative bg-gray-50 dark:bg-dark-800 rounded-2xl p-8 my-8 border border-gray-200 dark:border-gray-700">
-<pre class="text-sm"><code class="language-javascript"># Import workbook to write data from xlwt
-from xlwt import Workbook
-<p>#Create an object of the workbook</p>
-<p>excel = Workbook()</p>
-<p>#Add sheet in workbook</p>
-<p>sheet = excel.add_sheet(&quot;Test Data&quot;)</p>
-<p>for index, value in enumerate(data):
-sheet.write(index, 0, value[&quot;name&quot;])
-sheet.write(index, 1, value[&quot;age&quot;])
-sheet.write(index, 2, value[&quot;country&quot;])</p>
-<p>#Now save the excel</p>
-<p>save_location = &quot;path/to/your/working/directory/result.xls&quot;
-excel.save(save_location)
-</code></pre>
-<button class="copy-btn" onclick="copyToClipboard(this)">Copy Code</button></p>
-</div>
-<p>Thanks for visiting InDeepData</p>
-
+    class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <!-- Breadcrumb -->
+    <nav class="mb-8">
+        <ol class="flex items-center space-x-2 text-sm text-gray-500 dark:text-gray-400">
+            <li>
+                <a href="/" class="hover:text-blue-600 dark:hover:text-blue-400">Home</a>
+            </li>
+            <li>
+                <span class="mx-2">/</span>
+            </li>
+            <li>
+                <a href="/#latest-posts" class="hover:text-blue-600 dark:hover:text-blue-400">Blog</a>
+            </li>
+            <li>
+                <span class="mx-2">/</span>
+            </li>
+            <li class="text-gray-900 dark:text-gray-100">Version Control</li>
+        </ol>
+    </nav>
+    <!-- Category Header -->
+    <div class="text-center mb-12">
+        <div class="inline-flex items-center px-4 py-2 bg-blue-50 dark:bg-blue-900/20 rounded-full
+                text-blue-600 dark:text-blue-400 text-sm font-medium mb-6">
+            <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2
+                    0 01-2 2H4a2 2 0 01-2-2v-4z"></path>
+            </svg>
+            Category
         </div>
-        <!-- Share buttons -->
-        <div class="border-t border-gray-200 dark:border-dark-700 pt-8 mt-12">
-            <div class="flex items-center justify-end">
-                <a href="/" class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium">
-                    ← Back to all articles
-                </a>
+        <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+            Version Control
+        </h1>
+        <p class="text-base text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+            Explore all articles in the
+            Version Control category. 
+            
+                2 articles
+                available.
+            
+        </p>
+    </div>
+    <!-- Posts Grid -->
+    <div class="space-y-8">
+        
+        
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                    <article class="modern-card hover-lift">
+                        <div class="p-6">
+                            <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-4">
+                                <time datetime="2025-10-13T00:00:00.000Z">October 13, 2025</time>
+                                <span class="mx-2">•</span>
+                                <span class="inline-flex items-center px-2 py-1 bg-gray-100 dark:bg-gray-900/30 text-gray-800 dark:text-gray-300 rounded text-xs font-medium">
+                                    Version Control
+                                </span>
+                            </div>
+                            <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-3 hover:text-blue-600 dark:hover:text-blue-400
+                                    transition-colors">
+                                <a href="/blog/configure-git-on-local-system/">Quick Guide: Configuring Git on Your Local System</a>
+                            </h2>
+                            <p class="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
+                                Learn about how to install &amp; configure git on your operating system with easy to follow step by step guide.
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-500 dark:text-gray-400">1 min read</span>
+                                <a href="/blog/configure-git-on-local-system/" class="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium group">
+                                    Read more
+                                    <svg
+                                        class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article class="modern-card hover-lift">
+                        <div class="p-6">
+                            <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-4">
+                                <time datetime="2025-10-13T00:00:00.000Z">October 13, 2025</time>
+                                <span class="mx-2">•</span>
+                                <span class="inline-flex items-center px-2 py-1 bg-gray-100 dark:bg-gray-900/30 text-gray-800 dark:text-gray-300 rounded text-xs font-medium">
+                                    Version Control
+                                </span>
+                            </div>
+                            <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-3 hover:text-blue-600 dark:hover:text-blue-400
+                                    transition-colors">
+                                <a href="/blog/install-git-on-local-system/">How to Install Git on Your Local System Step-by-Step Guide for Beginners</a>
+                            </h2>
+                            <p class="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
+                                Learn about how to install git on your operating system with easy to follow step by step guide. Complete guide for Linux, MacOs, and Window installation.
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-500 dark:text-gray-400">1 min read</span>
+                                <a href="/blog/install-git-on-local-system/" class="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium group">
+                                    Read more
+                                    <svg
+                                        class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                
             </div>
-            <div class="flex items-center space-x-4 mt-5">
-                <span class="text-sm text-gray-500 dark:text-gray-400">Share this article:</span>
-                <button onclick="shareArticle('twitter')" class="text-blue-500 hover:text-blue-600">Twitter</button>
-                <button onclick="shareArticle('linkedin')" class="text-blue-500 hover:text-blue-600">LinkedIn</button>
+        
+        <!-- Related Categories -->
+        
+            <div class="border-t border-gray-200 dark:border-dark-700 pt-12 mt-16">
+                <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">Explore Other Categories</h3>
+                <div class="flex flex-wrap justify-center gap-4">
+                    
+                        
+                            
+                            
+                                
+                                <a
+                                    href="/category/data-analysis/"
+                                    class="inline-flex items-center px-4 py-2 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 rounded-lg font-medium hover:bg-green-200
+                                        dark:hover:bg-green-900/50 transition-colors">
+                                    Data Analysis
+                                    <span class="ml-2 text-xs bg-green-200 dark:bg-green-800 px-2 py-1
+                                            rounded-full">
+                                        1
+                                    </span>
+                                </a>
+                            
+                        
+                    
+                        
+                            
+                            
+                                
+                                <a
+                                    href="/category/python/"
+                                    class="inline-flex items-center px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded-lg font-medium hover:bg-blue-200
+                                        dark:hover:bg-blue-900/50 transition-colors">
+                                    Python
+                                    <span class="ml-2 text-xs bg-blue-200 dark:bg-blue-800 px-2 py-1
+                                            rounded-full">
+                                        4
+                                    </span>
+                                </a>
+                            
+                        
+                    
+                        
+                            
+                            
+                                
+                                <a
+                                    href="/category/statistics/"
+                                    class="inline-flex items-center px-4 py-2 bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-300 rounded-lg font-medium hover:bg-orange-200
+                                        dark:hover:bg-orange-900/50 transition-colors">
+                                    Statistics
+                                    <span class="ml-2 text-xs bg-orange-200 dark:bg-orange-800 px-2 py-1
+                                            rounded-full">
+                                        1
+                                    </span>
+                                </a>
+                            
+                        
+                    
+                        
+                    
+                </div>
             </div>
-        </div>
-    </article>
+        
+    </div>
 </div>
       </main>
       <!-- Footer -->

@@ -27,23 +27,23 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How to create an Excel file with Python using xlwt - InDeepData
+    <title>Statistics: Mean, Median, and Mode with examples - InDeepData
       
         - IndeepData
     </title>
-    <meta name="description" content="Python&#39;s XLWT library allows you to write Excel files. In addition to text and numbers, formulas can also be entered into multiple worksheets. Other features include styling text, managing column size, and more.">
-    <meta name="keywords" content="Python, CSV, Pandas, reader">
+    <meta name="description" content="The mean is the sum of all values of a dataset divided by total numbers. The mode is the most frequent number in a dataset. The median is the middle of the set of numbers when it is in sorted order.">
+    <meta name="keywords" content="python, CSV, pandas, statistics, data analysis">
     <meta name="author" content="IndeepData">
-    <meta property="og:title" content="How to create an Excel file with Python using xlwt - InDeepData">
-    <meta property="og:description" content="Python&#39;s XLWT library allows you to write Excel files. In addition to text and numbers, formulas can also be entered into multiple worksheets. Other features include styling text, managing column size, and more.">
+    <meta property="og:title" content="Statistics: Mean, Median, and Mode with examples - InDeepData">
+    <meta property="og:description" content="The mean is the sum of all values of a dataset divided by total numbers. The mode is the most frequent number in a dataset. The median is the middle of the set of numbers when it is in sorted order.">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://indeepdata.com/blog/create-excel-with-python/">
+    <meta property="og:url" content="https://indeepdata.com/blog/mean-median-mode/">
     
       <meta name="twitter:card" content="summary">
-      <meta name="twitter:title" content="How to create an Excel file with Python using xlwt - InDeepData">
-      <meta name="twitter:description" content="Python&#39;s XLWT library allows you to write Excel files. In addition to text and numbers, formulas can also be entered into multiple worksheets. Other features include styling text, managing column size, and more.">
+      <meta name="twitter:title" content="Statistics: Mean, Median, and Mode with examples - InDeepData">
+      <meta name="twitter:description" content="The mean is the sum of all values of a dataset divided by total numbers. The mode is the most frequent number in a dataset. The median is the middle of the set of numbers when it is in sorted order.">
     
-    <link rel="canonical" href="https://indeepdata.com/blog/create-excel-with-python/">
+    <link rel="canonical" href="https://indeepdata.com/blog/mean-median-mode/">
     <link rel="stylesheet" href="/assets/css/output.css">
     <link rel="stylesheet" href="/assets/css/styles.css">
     <link rel="icon" type="image/png" href="/assets/images/favlogo.png"/>
@@ -150,13 +150,13 @@
                 <time datetime="2025-10-13T00:00:00.000Z">October 13, 2025</time>
                 <span class="mx-2">•</span>
                 <a
-                    href="/category/python/"
-                    class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Python</a>
+                    href="/category/statistics/"
+                    class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Statistics</a>
                 <span class="mx-2">•</span>
-                <span>2 min read</span>
+                <span>4 min read</span>
             </div>
             <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-                How to create an Excel file with Python using xlwt
+                Statistics: Mean, Median, and Mode with examples
             </h1>
         </header>
         <!-- Table of Contents (only show if TOC exists) -->
@@ -188,54 +188,68 @@
         
         <!-- Article Content -->
         <div class="space-y-6" id="article-content">
-            <p><img src="/assets/images/createxcelpython.jpg" alt="Read CSV without Pandas"></p>
-<p>Python's <span class="inline-code">XLWT</span> library allows you to write Excel files. In addition to text and numbers, formulas can also be entered into multiple worksheets. Other features include styling text, managing column size, and more.</p>
-<h2>How to install xlwt librabry</h2>
-<p>Install xlwt with the below command.</p>
-<p><span class="inline-code">pip install xlwt</span></p>
-<p>In order to test our code after installation, we need to create a dummy data set.</p>
-<div class="relative bg-gray-50 dark:bg-dark-800 rounded-2xl p-8 my-8 border border-gray-200 dark:border-gray-700">
-<pre class="text-sm"><code class="language-javascript">data = [
-    {
-        "name":"Testuser1",
-        "age":20,
-        "country":"India"
-    },
-    {
-        "name":"Testuser2",
-        "age":20,
-        "country":"Canada"
-    },
-    {
-        "name":"Testuser2",
-        "age":29,
-        "country":"USA"
-    },
-]
-</code></pre>
-<button class="copy-btn" onclick="copyToClipboard(this)">Copy Code</button>
+            <p><img src="/assets/images/mmm-image.jpg" alt="Read CSV without Pandas"></p>
+<p>Do you ever think about how many percent of people own a larger portion of the wealth?</p>
+<p>Let’s take an example of India,
+According to Oxfam 2017 report,</p>
+<p><em>The top 10% of the Indian population holds 77% of the total national wealth. 73% of the wealth generated in 2017 went to the richest 1%, while 67 million Indians who comprise the poorest half of the population saw only a 1% increase in their wealth.</em></p>
+<p>So as you can see, there is an unequal distribution of wealth in India. It is also much the same in other parts of the world. We often think that if wealth is equally divided then how good it will be.</p>
+<p>Suppose today is your lucky day, your wish is granted and all the people have decided to distribute wealth equally among themself.</p>
+<p>Here the question arises. <br>
+<strong>1.</strong> How will you distribute wealth equally?
+<strong>2.</strong> How the government calculates the average salary for a country?
+<strong>3.</strong> Which salary range has the maximum number of people?</p>
+<p>Here maths comes to solve your problem, we all have heard the three most popular words of maths <strong>MEAN, MEDIAN</strong>, and <strong>MODE</strong>. Now we have to find out when and where these are going to help us.</p>
+<p>Let’s understand it with the help of an example.</p>
+<p>country X has 10 people and we have their wealth data as given below.</p>
+<div class="img-center">
+  <img src="/assets/images/mmm-salary.png" alt="salary image" width="600">
 </div>
-<p>Now we have the data to create excel file.</p>
-<h2>How to create Excel with Python using xlwt</h2>
-<p>Please follow the below given code</p>
-<div class="relative bg-gray-50 dark:bg-dark-800 rounded-2xl p-8 my-8 border border-gray-200 dark:border-gray-700">
-<pre class="text-sm"><code class="language-javascript"># Import workbook to write data from xlwt
-from xlwt import Workbook
-<p>#Create an object of the workbook</p>
-<p>excel = Workbook()</p>
-<p>#Add sheet in workbook</p>
-<p>sheet = excel.add_sheet(&quot;Test Data&quot;)</p>
-<p>for index, value in enumerate(data):
-sheet.write(index, 0, value[&quot;name&quot;])
-sheet.write(index, 1, value[&quot;age&quot;])
-sheet.write(index, 2, value[&quot;country&quot;])</p>
-<p>#Now save the excel</p>
-<p>save_location = &quot;path/to/your/working/directory/result.xls&quot;
-excel.save(save_location)
-</code></pre>
-<button class="copy-btn" onclick="copyToClipboard(this)">Copy Code</button></p>
+<p>Now we come to our first question.
+How will you distribute wealth equally?</p>
+<p>First, we have to calculate what is the total wealth. So for that, we will sum up the wealth.</p>
+<p><strong>Total wealth</strong> = 7 + 3 + 20 + 12 + 1 + 9 + 5 + 17 + 22 + 8 = <strong>104 Million</strong></p>
+<p>Now we calculate how much any individual will get = Total Wealth / Total no. of people</p>
+<p>= 104 / 10</p>
+<p>= <strong>10.4 Million</strong></p>
+<p>If we distribute wealth equally among all the people then each one will get 10.4 million. What we calculate above, In a maths language that is called MEAN.</p>
+<h2>MEAN</h2>
+<p><strong>MEAN</strong>: Mean is the sum of all the items divided by the total number of items. It is also called Average.</p>
+<div class="img-center">
+  <img src="/assets/images/mean.png" alt="Mean image" width="300">
 </div>
-<p>Thanks for visiting InDeepData</p>
+<p>It’s time for the second question.
+How the government calculates the average salary for a country?</p>
+<p>First, we will short(arrange all salaries in increasing or decreasing order) the data.</p>
+<p>Now we will find out the middle point in the data. But items are even so we will take the middle two items. Here person J and F. Whose wealth are 8 and 9 million respectively.</p>
+<p>We will take the mean of J and F wealth the find out the middle value.</p>
+<p>= 8+9 / 2 <br>
+= <strong>8.5 Million</strong></p>
+<p>The middle value is <strong>8.5 Million</strong>. This is the answer to our second question. This whole process is also called MEDIAN.</p>
+<h2>MEDIAN</h2>
+<p><strong>MEDIAN</strong>: The number in the middle in sorted data is called MEDIAN. If data has even items then the Median will be the mean of those two middle values.</p>
+<p>If data has an odd no. of items.</p>
+<div class="img-center">
+  <img src="/assets/images/odd-median.png" alt="odd median" width="400">
+</div>
+<p>If data has even no. of items.</p>
+<div class="img-center">
+  <img src="/assets/images/even-median.png" alt="even median" width="400">
+</div>
+<p>It’s time for our last question.
+Which salary range has the maximum number of people?</p>
+<p>First, we will decide the range and count the people in that range.</p>
+<div class="img-center">
+  <img src="/assets/images/salary-range.png" alt="Salary range" width="600">
+</div>
+<p>Most of the people have salaries in the range of 5 million to 10 million. It is called MODE in Maths.</p>
+<h2>MODE</h2>
+<p><strong>MODE</strong>: Which item has the highest frequency is called MODE.</p>
+<div class="img-center">
+  <img src="/assets/images/mode.png" alt="Mode image" width="600">
+</div>
+<p>According to the number line,2 is the mode.</p>
+<p>Thanks for visiting InDeepData.</p>
 
         </div>
         <!-- Share buttons -->
